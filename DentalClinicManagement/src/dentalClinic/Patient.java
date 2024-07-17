@@ -25,9 +25,13 @@ public class Patient {
      * @param contactInfo Contact information for the patient.
      */
     public Patient(String name, String patientID, String contactInfo) {
+        if(name != null && patientID != null && contactInfo != null){
         this.name = name;
         this.patientID = patientID;
-        this.contactInfo = contactInfo;
+        this.contactInfo = contactInfo;}
+        else{
+            break;
+        }
     }
 /****************************************************************************\
     /**
