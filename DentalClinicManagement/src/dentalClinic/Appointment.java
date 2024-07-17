@@ -35,11 +35,15 @@ public class Appointment {
      * @param doctor Doctor associated with the appointment.
      */
     public Appointment(String appointmentID, String date, String time, Patient patient, Doctor doctor) {
+        if( appointmentId != null && date != null && time != null && patient != null && doctor != null){
         this.appointmentID = appointmentID;
         this.date = date;
         this.time = time;
         this.patient = patient;
-        this.doctor = doctor;
+        this.doctor = doctor;}
+        else{
+            break;
+        }
     }
 
 /****************************************************************************\
