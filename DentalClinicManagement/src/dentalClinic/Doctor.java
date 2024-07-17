@@ -25,9 +25,13 @@ public class Doctor extends User {
      * @param password Password of the doctor.
      */
     public Doctor(String username, String password) {
+        if(username != null && password != null){
         super(username, password);
         this.dailyAppointments = new ArrayList<>();
-        this.prescriptions = new ArrayList<>();
+        this.prescriptions = new ArrayList<>();}
+        else{
+            break;
+        }
     }
 /****************************************************************************\
     /**
