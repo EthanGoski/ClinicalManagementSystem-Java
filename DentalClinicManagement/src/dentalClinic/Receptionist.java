@@ -22,8 +22,12 @@ public class Receptionist extends User {
      * @param password Password of the receptionist.
      */
     public Receptionist(String username, String password) {
+        if( username != null && password != null){
         super(username, password);
-        this.patients = new ArrayList<>();
+        this.patients = new ArrayList<>();}
+        else{
+            break;
+        }
     }
 /****************************************************************************\
     /**
