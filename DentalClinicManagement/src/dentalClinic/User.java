@@ -22,8 +22,13 @@ public abstract class User {
      * @param password Password of the user.
      */
     public User(String username, String password) {
+        if( username != null && password != null){
         this.username = username;
         this.password = password;
+        }
+        else{
+            break;
+        }
     }
 /****************************************************************************\
     /**
