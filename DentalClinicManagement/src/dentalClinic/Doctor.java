@@ -25,6 +25,13 @@ public class Doctor extends User {
      * @param password Password of the doctor.
      */
     public Doctor(String username, String password) {
+        if(username == null || username.trim().isEmpty()){
+            throw new IllegalArgumentException("Username cannot be null or blank");
+        }
+        if(password == null || password.trim().isEmpty()){
+            throw new IllegalArgumentException("Password cannot be null or blank");
+        }
+        
         super(username, password);
         this.dailyAppointments = new ArrayList<>();
         this.prescriptions = new ArrayList<>();
