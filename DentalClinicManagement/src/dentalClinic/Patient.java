@@ -17,18 +17,29 @@ public class Patient {
     private String contactInfo;
 
 /****************************************************************************\
-    /**
-     * Constructs a new Patient instance.
-     *
-     * @param name Name of the patient.
-     * @param patientID Unique identifier for the patient.
-     * @param contactInfo Contact information for the patient.
-     */
-    public Patient(String name, String patientID, String contactInfo) {
-        this.name = name;
-        this.patientID = patientID;
-        this.contactInfo = contactInfo;
+  /**
+ * Constructs a new Patient instance.
+ *
+ * @param name Name of the patient.
+ * @param patientID Unique identifier for the patient.
+ * @param contactInfo Contact information for the patient.
+ * @throws IllegalArgumentException if any parameter is null or blank.
+ */
+public Patient(String name, String patientID, String contactInfo) {
+    if (name == null || name.trim().isEmpty()) {
+        throw new IllegalArgumentException("Name cannot be null or blank");
     }
+    if (patientID == null || patientID.trim().isEmpty()) {
+        throw new IllegalArgumentException("Patient ID cannot be null or blank");
+    }
+    if (contactInfo == null || contactInfo.trim().isEmpty()) {
+        throw new IllegalArgumentException("Contact info cannot be null or blank");
+    }
+    this.name = name;
+    this.patientID = patientID;
+    this.contactInfo = contactInfo;
+}
+
 /****************************************************************************\
     /**
      * Returns the name of the patient.
