@@ -15,16 +15,24 @@ public abstract class User {
     private String password;
 
 /****************************************************************************\
-    /**
-     * Constructs a new User instance.
-     * 
-     * @param username Username of the user.
-     * @param password Password of the user.
-     */
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
+  /**
+ * Constructs a new User instance.
+ * 
+ * @param username Username of the user.
+ * @param password Password of the user.
+ * @throws IllegalArgumentException if username or password is null or blank.
+ */
+public User(String username, String password) {
+    if (username == null || username.trim().isEmpty()) {
+        throw new IllegalArgumentException("Username cannot be null or blank");
     }
+    if (password == null || password.trim().isEmpty()) {
+        throw new IllegalArgumentException("Password cannot be null or blank");
+    }
+    this.username = username;
+    this.password = password;
+}
+
 /****************************************************************************\
     /**
      * Returns the username of the user.
