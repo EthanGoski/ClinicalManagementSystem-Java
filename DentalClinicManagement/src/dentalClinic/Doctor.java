@@ -23,6 +23,7 @@ public class Doctor extends User {
      *
      * @param username Username of the doctor.
      * @param password Password of the doctor.
+     * @throws IllegalArgumentException if any parameter is null or blank
      */
     public Doctor(String username, String password) {
         if(username == null || username.trim().isEmpty()){
