@@ -25,22 +25,38 @@ public class Appointment {
 
 /****************************************************************************\
 
-    /**
-     * Constructs a new Appointment instance.
-     *
-     * @param appointmentID Unique identifier for the appointment.
-     * @param date Date of the appointment.
-     * @param time Time of the appointment.
-     * @param patient Patient associated with the appointment.
-     * @param doctor Doctor associated with the appointment.
-     */
-    public Appointment(String appointmentID, String date, String time, Patient patient, Doctor doctor) {
-        this.appointmentID = appointmentID;
-        this.date = date;
-        this.time = time;
-        this.patient = patient;
-        this.doctor = doctor;
+   /**
+ * Constructs a new Appointment instance.
+ *
+ * @param appointmentID Unique identifier for the appointment.
+ * @param date Date of the appointment.
+ * @param time Time of the appointment.
+ * @param patient Patient associated with the appointment.
+ * @param doctor Doctor associated with the appointment.
+ * @throws IllegalArgumentException if any parameter is null or blank.
+ */
+public Appointment(String appointmentID, String date, String time, Patient patient, Doctor doctor) {
+    if (appointmentID == null || appointmentID.trim().isEmpty()) {
+        throw new IllegalArgumentException("Appointment ID cannot be null or blank");
     }
+    if (date == null || date.trim().isEmpty()) {
+        throw new IllegalArgumentException("Date cannot be null or blank");
+    }
+    if (time == null || time.trim().isEmpty()) {
+        throw new IllegalArgumentException("Time cannot be null or blank");
+    }
+    if (patient == null) {
+        throw new IllegalArgumentException("Patient cannot be null");
+    }
+    if (doctor == null) {
+        throw new IllegalArgumentException("Doctor cannot be null");
+    }
+    this.appointmentID = appointmentID;
+    this.date = date;
+    this.time = time;
+    this.patient = patient;
+    this.doctor = doctor;
+}
 
 /****************************************************************************\
 
