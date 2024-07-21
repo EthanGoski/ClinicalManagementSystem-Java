@@ -26,24 +26,44 @@ public class Prescription {
     private Doctor doctor;
 
 /****************************************************************************\
-    /**
-     * Constructs a new Prescription instance.
-     *
-     * @param prescriptionID Unique identifier for the prescription.
-     * @param patient Patient associated with the prescription.
-     * @param medication Medication prescribed.
-     * @param dosage Dosage of the medication.
-     * @param instructions Instructions for taking the medication.
-     * @param doctor Doctor who prescribed the medication.
-     */
-    public Prescription(String prescriptionID, Patient patient, String medication, String dosage, String instructions, Doctor doctor) {
-        this.prescriptionID = prescriptionID;
-        this.patient = patient;
-        this.medication = medication;
-        this.dosage = dosage;
-        this.instructions = instructions;
-        this.doctor = doctor;
+  /**
+ * Constructs a new Prescription instance.
+ *
+ * @param prescriptionID Unique identifier for the prescription.
+ * @param patient Patient associated with the prescription.
+ * @param medication Medication prescribed.
+ * @param dosage Dosage of the medication.
+ * @param instructions Instructions for taking the medication.
+ * @param doctor Doctor who prescribed the medication.
+ * @throws IllegalArgumentException if any parameter is null or blank.
+ */
+public Prescription(String prescriptionID, Patient patient, String medication, String dosage, String instructions, Doctor doctor) {
+    if (prescriptionID == null || prescriptionID.trim().isEmpty()) {
+        throw new IllegalArgumentException("Prescription ID cannot be null or blank");
     }
+    if (patient == null) {
+        throw new IllegalArgumentException("Patient cannot be null");
+    }
+    if (medication == null || medication.trim().isEmpty()) {
+        throw new IllegalArgumentException("Medication cannot be null or blank");
+    }
+    if (dosage == null || dosage.trim().isEmpty()) {
+        throw new IllegalArgumentException("Dosage cannot be null or blank");
+    }
+    if (instructions == null || instructions.trim().isEmpty()) {
+        throw new IllegalArgumentException("Instructions cannot be null or blank");
+    }
+    if (doctor == null) {
+        throw new IllegalArgumentException("Doctor cannot be null");
+    }
+    this.prescriptionID = prescriptionID;
+    this.patient = patient;
+    this.medication = medication;
+    this.dosage = dosage;
+    this.instructions = instructions;
+    this.doctor = doctor;
+}
+
 /****************************************************************************\
     /**
      * Returns the unique identifier for the prescription.
