@@ -15,16 +15,24 @@ public class Receptionist extends User {
     private List<Patient> patients;
 
 /****************************************************************************\
-    /**
-     * Constructs a new Receptionist instance.
-     *
-     * @param username Username of the receptionist.
-     * @param password Password of the receptionist.
-     */
-    public Receptionist(String username, String password) {
-        super(username, password);
-        this.patients = new ArrayList<>();
+ /**
+ * Constructs a new Receptionist instance.
+ *
+ * @param username Username of the receptionist.
+ * @param password Password of the receptionist.
+ * @throws IllegalArgumentException if username or password is null or blank.
+ */
+public Receptionist(String username, String password) {
+    if (username == null || username.trim().isEmpty()) {
+        throw new IllegalArgumentException("Username cannot be null or blank");
     }
+    if (password == null || password.trim().isEmpty()) {
+        throw new IllegalArgumentException("Password cannot be null or blank");
+    }
+    super(username, password);
+    this.patients = new ArrayList<>();
+}
+
 /****************************************************************************\
     /**
      * Adds a new patient to the list of patients managed by the receptionist.
